@@ -1,0 +1,7 @@
+name: /home/mark/repos/v2ray-proto-python/env
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - grpcio-tools
+prefix: /home/mark/repos/v2ray-proto-python/env
