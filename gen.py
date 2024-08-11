@@ -41,15 +41,19 @@ def generate_proto_files(proto_dir, output_dir, import_prefix):
 
 
 def modify_import_paths(file_path: str, import_prefix):
-    with open(file_path, 'r') as file:
+    with open(file_path, "r") as file:
         content = file.read()
 
     # Add the import prefix to the generated file
-    for base_path in ['app','common','proxy','transport', 'config_pb2']:
-        content = content.replace(f'\nimport {base_path}', f'\nimport {import_prefix}.{base_path}')
-        content = content.replace(f'\nfrom {base_path}', f'\nfrom {import_prefix}.{base_path}')
+    for base_path in ["app", "common", "proxy", "transport", "config_pb2"]:
+        content = content.replace(
+            f"\nimport {base_path}", f"\nimport {import_prefix}.{base_path}"
+        )
+        content = content.replace(
+            f"\nfrom {base_path}", f"\nfrom {import_prefix}.{base_path}"
+        )
 
-    with open(file_path, 'w') as file:
+    with open(file_path, "w") as file:
         file.write(content)
     pass
 
@@ -74,9 +78,16 @@ def create_init_files(directory):
 
 if __name__ == "__main__":
     # Replace 'lib/v2ray-core' and 'lib/v2ray-core-proto' with your actual paths
-    proto_dir = "lib/v2ray-core"
-    output_dir = "v2ray_proto"
-    import_prefix = "v2ray_proto"
+    # proto_dir = "lib/v2ray-core"
+    # output_dir = "v2ray_proto"
+    # import_prefix = "v2ray_proto"
+
+    # generate_proto_files(proto_dir, output_dir, import_prefix)
+    # create_init_files(output_dir)
+
+    proto_dir = "lib/xray-core"
+    output_dir = "xray_proto"
+    import_prefix = "xray_proto"
 
     generate_proto_files(proto_dir, output_dir, import_prefix)
     create_init_files(output_dir)

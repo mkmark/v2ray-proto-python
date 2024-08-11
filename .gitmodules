@@ -1,3 +1,6 @@
 [submodule "lib/v2ray-core"]
 	path = lib/v2ray-core
 	url = git@github.com:v2fly/v2ray-core.git
+[submodule "lib/xray-core"]
+	path = lib/xray-core
+	url = https://github.com/xtls/xray-core.git
